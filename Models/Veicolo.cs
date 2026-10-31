@@ -2,7 +2,7 @@
 {
     public class Veicolo
     {
-        public int Id { get; set; }
+        public int VeicoloId { get; set; }
         public int NumeroRuote { get; set; }
         public int TipoAlimentazioneId { get; set; }
         public int CategoriaId { get; set; }
