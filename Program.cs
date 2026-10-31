@@ -1,7 +1,13 @@
+using project_veicoli_ado.Dao.Implementations;
+using project_veicoli_ado.Dao.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Connessione al database
-builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Registrazione dei DAO
+builder.Services.AddScoped<IBiciDao>(provider => new BiciDao(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
