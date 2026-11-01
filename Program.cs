@@ -8,6 +8,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 // Registrazione dei DAO
 builder.Services.AddScoped<IBiciDao>(provider => new BiciDao(connectionString));
+builder.Services.AddScoped<IMotoDao>(provider => new MotoDao(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
