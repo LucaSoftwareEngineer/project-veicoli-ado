@@ -25,7 +25,7 @@ namespace project_veicoli_ado.Services.Implementations
             }
         }
 
-        public List<Macchina> GetAll(Macchina t)
+        public List<Macchina> GetAll()
         {
             return _macchinaDao.GetAll();
         }
