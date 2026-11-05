@@ -1,8 +1,9 @@
 ﻿using project_veicoli_ado.Models;
+using project_veicoli_ado.ViewModels;
 
 namespace project_veicoli_ado.Services.Interface
 {
-    public interface IVeicoliService<T> where T : Veicolo
+    public interface IVeicoliService<T> where T : VeicoloViewModel
     {
         public bool Insert(T t);
         public bool Update(T t);
