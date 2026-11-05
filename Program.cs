@@ -1,8 +1,11 @@
 using project_veicoli_ado.Dao.Implementations;
+using project_veicoli_ado.Dao.Implementations.Tipologie;
 using project_veicoli_ado.Dao.Interface;
+using project_veicoli_ado.Dao.Interface.Tipologie;
 using project_veicoli_ado.Models;
 using project_veicoli_ado.Services.Implementations;
 using project_veicoli_ado.Services.Interface;
+using project_veicoli_ado.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +16,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddScoped<IBiciDao>(provider => new BiciDao(connectionString));
 builder.Services.AddScoped<IMotoDao>(provider => new MotoDao(connectionString));
 builder.Services.AddScoped<IMacchinaDao>(provider => new MacchinaDao(connectionString));
+builder.Services.AddScoped<ITipoAlimentazioneDao>(provider => new TipoAlimentazioneDao(connectionString));
+builder.Services.AddScoped<ICategoriaDao>(provider => new CategoriaDao(connectionString));
 
 // Registrazione dei Service
-builder.Services.AddScoped<IVeicoliService<Macchina>, MacchinaService>();
+builder.Services.AddScoped<IVeicoliService<MacchinaViewModel>, MacchinaService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
